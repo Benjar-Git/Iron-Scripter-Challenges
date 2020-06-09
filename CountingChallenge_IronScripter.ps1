@@ -1,7 +1,8 @@
 ﻿#powershell - Iron Scripter - Counting Challenge
 #BEGINNER - 3 ways to sum even numbers from 1 - 100
 #1
-(1..100 | ?{($_ % 2) -eq 0} | Measure-Object -Sum).sum
+$beginnerSample1 = (1..100 | ?{($_ % 2) -eq 0} | Measure-Object -Sum).sum
+write-host "Beginner Sample 1: $beginnerSample1" -ForegroundColor cyan
 
 #2
 $numArray = 1..100
@@ -11,7 +12,7 @@ foreach($num in $numArray){
         $sum+=$num
     }
 }
-$sum
+write-host "Beginner Sample 2: $sum" -ForegroundColor Yellow
 
 #3
 $sum2=0
@@ -21,7 +22,7 @@ while($i -ge 0){
     $i-=2
     
 }
-$sum2
+write-host "Beginner Sample 3: $sum2" -ForegroundColor Magenta
 
 
 #INTERMEDIATE - Function that allows user to input start Number, End Number, and interval(i.e. "Every 5th number between 6 - 546")
@@ -55,3 +56,8 @@ function Count-Challenge {
     
 
 }
+
+
+Write-Host "`n`nFunction Example:" -ForegroundColor Green
+write-host "Count-Challenge -startNumber 4 -endNumber 104 -interval 8" -ForegroundColor green
+Count-Challenge -startNumber 4 -endNumber 104 -interval 8
